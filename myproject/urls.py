@@ -24,5 +24,6 @@ router.register(r'donor',views.DonnorView,'donor')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/',include(router.urls))
+    path('api/',include(router.urls)),
+    path('',include('bloodDonor.urls'))
 ]
