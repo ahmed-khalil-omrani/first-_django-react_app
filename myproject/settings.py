@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'myapp',
+    'bloodDonor',
+    'rest_framework',
+    
 ]
 
 MIDDLEWARE = [
@@ -78,11 +80,27 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'Project_db',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT':{
+            'host':'mongodb://localhost:27017'
+        }
+
+    }
+}"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Project_db',
+        'USER':'postgres',
+        'PASSWORD':'ha22072014',
+        'HOST':'localhost',
+        'PORT':'5432'
+
     }
 }
 
@@ -130,3 +148,7 @@ STATICFILES_DIRS=[
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ORIGINS_WHITELIST=[
+    'https://localhost:3000'
+]
